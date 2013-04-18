@@ -69,6 +69,7 @@ loop do
         `terminal-notifier -title "#{title}" -message "#{message}" -open "#{url}"`
       elsif OS.is_linux?
         Notify = Notify::Notification.new(title, message, "dialog-information")
+        Notify.show
       else
         puts "#{title}: #{message} - #{url}"
       end

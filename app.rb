@@ -68,8 +68,8 @@ loop do
       if OS.is_mac?
         `terminal-notifier -title "#{title}" -message "#{message}" -open "#{url}"`
       elsif OS.is_linux?
-        Notify = Notify::Notification.new(title, message, "dialog-information")
-        Notify.show
+        linuxNotification = Notify::Notification.new(title, message, "dialog-information")
+        linuxNotification.show
       else
         puts "#{title}: #{message} - #{url}"
       end

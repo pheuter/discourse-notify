@@ -36,3 +36,8 @@ In app directory:
 ```sh
 $ bundle install
 ```
+
+## Configuration
+
+discourse-notify requires the Discourse **_t** cookie value to authenticate.
+Simply use the browser to get the value for the `_t` cookie and paste it in config.yml.

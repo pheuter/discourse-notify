@@ -43,10 +43,12 @@ end
 
 AUTH_COOKIE = YAML.load_file('config.yml')['_t']
 
+puts "Running discourse-notify..."
+
 notifications = []
 loop do
   sleep 3
-  
+
   allNotifications = API.getAllNotifications
   latestNotification = allNotifications[0]
 
@@ -60,7 +62,7 @@ loop do
 
       title = "CrowdTwist Discourse"
       url = "http://disc.crowdtwist.com/discourse/t/#{slug}/#{topicId}/#{postNumber}"
-      
+
       message = ""
       message += "New post by #{displayUsername}" if displayUsername
       message += " for topic '#{topicTitle}'" if topicTitle
@@ -70,9 +72,9 @@ loop do
       elsif OS.is_linux?
         linuxNotification = Notify::Notification.new(title, message, "dialog-information")
         linuxNotification.show
-      else
-        puts "#{title}: #{message} - #{url}"
       end
+
+      puts "#{title}: #{message} - #{url}"
     end
   end
 

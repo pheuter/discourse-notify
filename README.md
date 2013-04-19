@@ -41,3 +41,11 @@ $ bundle install
 
 discourse-notify requires the Discourse **_t** cookie value to authenticate.
 Simply use the browser to get the value for the `_t` cookie and paste it in config.yml.
+
+## Running the app
+
+In app directory:
+
+```sh
+$ ruby app.rb
+```
